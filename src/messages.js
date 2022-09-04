@@ -4,7 +4,7 @@ const prefix = process.env.PREFIX || "anm";
 module.exports = {
     RegisterReminder: "To register, please enter\n\n*/r code*\n\nwhere code is *your 9 digit ID*.\n\nFor example: */r 694206969*.\n\nDon't miss the space in between /r and your ID!",
     NoGroupChats: "Please don't add me to groups! Byeeee 👋",
-    BotWelcome: (name, chatTarget) => `Welcome${name}! This bot will act as a messaging platform between you and your ${chatTarget}. Simply send a message here and we will pass it to your ${chatTarget}`,
+    BotWelcome: (name, chatTarget) => `Welcome${name}! This bot will act as a messaging platform between you and your ${chatTarget}. Simply send a message here and we will pass it to your ${chatTarget}\n\n*For more information on what you can do, type /help.*`,
     ReferToBot: (chatAs) => `Please go to the ${chatAs}-bot at @${prefix}_${chatAs.toLowerCase()}_bot to start chatting with your ${chatAs} as well. You do not need to register again.`,
     // RegisterWelcome: "Paste the 9 digit code sent to you here to register",
     UnregisteredTarget: (chatTarget) => `It seems that your ${chatTarget} hasn't registered with the bot on Telegram, we can't deliver your message to them. Don't worry, we'll let you know as soon as they have registered!`,
@@ -14,7 +14,7 @@ module.exports = {
     StatusMessage: (name, mortalName) => `Hi ${name}! Your mortal is ${mortalName}. Have fun chatting with them!`,
     AlreadyRegisteredError: (name) => `Already registered as ${name}`,
     RegisterFailedGeneralError: (code) => `Failed to register with code ${code}`,
-    HelpMessage: "This bot allows you to communicate with your angel/mortal anonymously.\nRegister with the code given to you by typing\n`/r <code>`\nOnce registered, you can send messages to your angel/mortal just by sending them here just like any other Telegram chat. Currently supported message types are text, stickers, photos and videos.",
+    HelpMessage: `This bot allows you to communicate with your angel/mortal anonymously.\n\n*REGISTRATION*\nRegister with the code given to you by typing\n*/r <code>*\n\n*CHAT*\nOnce registered, you can send messages to your angel/mortal just by sending them here just like any other Telegram chat. Currently supported message types are text, stickers, photos and videos.\n\n*THEME DAYS*\nYou can type /confirm to record a themed prank/gift, and the angel stands to learn more about their angel!\n*So how does it work?*\n_AS AN ANGEL_, if you prank/gift according to the theme on theme days, you can go to your _MORTAL BOT_ (@${prefix}_mortal_bot) and /confirm.\n_AS A MORTAL_, if your angel pranks/gifts according to the theme on theme days, you can go to your _ANGEL BOT_ (@${prefix}_angel_bot) and /confirm.\nBoth parties must /confirm for the corresponding angel to unlock a fun fact about their own angel.`,
     RegisteredNotifier: (chatTarget) => `Your ${chatTarget} has registered with the bot on Telegram. Happy chatting!`,
     UnregisteredNotifier: (chatTarget) => `Your ${chatTarget} has not registered with the bot on Telegram. We'll let you know once they've registered!`,
     NotRegistered: "Not registered",

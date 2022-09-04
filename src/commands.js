@@ -252,7 +252,7 @@ HelpHandler = async (ctx) => {
 StartHandler = async (ctx) => {
     const name = ctx.isRegistered ? " " + ctx.person.name : ""
     const message = messages.BotWelcome(name, ctx.chatTarget)
-    await ctx.reply(message)
+    await ctx.replyWithMarkdown(message)
     if (!ctx.isRegistered) {
         await ctx.replyWithMarkdown(messages.RegisterReminder)
         return
