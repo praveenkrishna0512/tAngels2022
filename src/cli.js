@@ -164,8 +164,10 @@ async function loadPaired(workbook, model) {
             }
             console.error(`Error: Unexpected value at row: ${rowNumber}, col: ${colNumber}`);
         })
+        row.getCell('H').value = angel.uuid
         // console.log(angel)
     });
+    workbook.xlsx.writeFile("./IDsGenerated.xlsx")
 }
 
 function loadCircular(content) {
