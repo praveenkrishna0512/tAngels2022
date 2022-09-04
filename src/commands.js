@@ -83,7 +83,8 @@ ConfirmHandler = async (ctx) => {
         return ctx.reply(messages.NotRegistered)
     }
     var person = ctx.person
-    if (person.confirm) {
+    var confirmed = ctx.isAngel ? person.angelConfirm : person.mortalConfirm
+    if (confirmed) {
         return ctx.reply(messages.AlreadyConfirmed)
     }
     await ctx.reply(messages.AskToDoubleConfirm(ctx.isAngel))
@@ -95,12 +96,10 @@ DoubleConfirmHandler = async (ctx) => {
     }
     const model = ctx.model
     var person = ctx.person
-    if (person.confirm) {
+    var confirmed = ctx.isAngel ? person.angelConfirm : person.mortalConfirm
+    if (confirmed) {
         return ctx.reply(messages.AlreadyConfirmed)
     }
-    //TODO: REMOVE THESE TWO LINES
-    person.confirm = true
-    model.saveToStorage()
 
     const other = ctx.isAngel ? ctx.angel : ctx.mortal
     if (!other.isRegistered()) {
@@ -108,7 +107,8 @@ DoubleConfirmHandler = async (ctx) => {
     }
 
     // Check if both have confirmed
-    if (!other.confirm) {
+    var otherConfirmed = ctx.isAngel ? other.mortalConfirm : other.angelConfirm
+    if (!otherConfirmed) {
         await ctx.reply(messages.WillGetOtherToConfirm(ctx.isAngel))
         await ctx.otherBot.telegram.sendMessage(other.telegramId, messages.AskOtherToConfirm(!ctx.isAngel))
         return
@@ -128,7 +128,7 @@ DoubleConfirmHandler = async (ctx) => {
     await ctx.model.mortalBot.telegram.sendMessage(angel.telegramId, messages.BothHaveConfirmed(false, fact))
     await ctx.model.angelBot.telegram.sendMessage(mortal.telegramId, messages.BothHaveConfirmed(true, null))
 
-    person.confirm = true
+    confirmed = true
     model.saveToStorage()
 }
 

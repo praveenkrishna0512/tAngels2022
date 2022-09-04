@@ -17,7 +17,8 @@ class Model {
     resetConfirm() {
         console.log("Resetting Confirm!")
         this.people.forEach((person) => {
-            person.confirm = false;
+            person.angelConfirm = false;
+            person.mortalConfirm = false;
         })
         this.saveToStorage()
     }
@@ -136,7 +137,8 @@ class Person {
         this.angel = null;
         this.mortal = null;
         this.facts = [];
-        this.confirm = false;
+        this.angelConfirm = false;
+        this.mortalConfirm = false;
         return this;
     }
 
@@ -158,7 +160,8 @@ class Person {
     deregister() {
         this.telegramId = "";
         this.username = "";
-        this.confirm = false;
+        this.angelConfirm = false;
+        this.mortalConfirm = false;
     }
 
     isRegistered() {
@@ -175,7 +178,8 @@ class Person {
             angel: this.angel || null,
             mortal: this.mortal || null,
             facts: this.facts,
-            confirm: this.confirm
+            angelConfirm: this.angelConfirm,
+            mortalConfirm: this.mortalConfirm
         }
     }
 
@@ -189,7 +193,8 @@ class Person {
         person.angel = obj.angel
         person.mortal = obj.mortal
         person.facts = obj.facts
-        person.confirm = obj.confirm
+        person.angelConfirm = obj.angelConfirm
+        person.mortalConfirm = obj.mortalConfirm
         return person
     }
 }
