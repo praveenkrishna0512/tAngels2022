@@ -2,7 +2,7 @@ require('dotenv').config();
 const prefix = process.env.PREFIX || "anm";
 
 module.exports = {
-    RegisterReminder: "To register, please enter \'**/r code**\' where code is your 9 digit code. For example: \'**/r 694206969**\'. Don\'t miss the space in between /r and your ID!",
+    RegisterReminder: "To register, please enter\n\n*/r code*\n\nwhere code is *your 9 digit ID*.\n\nFor example: */r 694206969*.\n\nDon't miss the space in between /r and your ID!",
     NoGroupChats: "Please don't add me to groups! Byeeee 👋",
     BotWelcome: (name, chatTarget) => `Welcome${name}! This bot will act as a messaging platform between you and your ${chatTarget}. Simply send a message here and we will pass it to your ${chatTarget}`,
     ReferToBot: (chatAs) => `Please go to the ${chatAs}-bot at @${prefix}_${chatAs.toLowerCase()}_bot to start chatting with your ${chatAs} as well. You do not need to register again.`,
@@ -19,6 +19,7 @@ module.exports = {
     UnregisteredNotifier: (chatTarget) => `Your ${chatTarget} has not registered with the bot on Telegram. We'll let you know once they've registered!`,
     NotRegistered: "Not registered",
     AskToDoubleConfirm: (isAngel) => `You are about to confirm that ${isAngel ? "your Angel has" : "you have"} done a prank/gift according to today's theme!\n\nIf this is the case, please type in /doubleconfirm to double confirm.`,
+    UnregisteredTargetToConfirm: (chatTarget) => `It seems that your ${chatTarget} hasn't registered with the bot on Telegram, we can't confirm your theme day prank/gift! Don't worry, we'll let you know as soon as they have registered!`,
     WillGetOtherToConfirm: (isAngel) => `Thanks for confirming! Your ${isAngel ? "Angel" : "Mortal"} has not confirmed yet, we have messaged them to do so!`,
     AskOtherToConfirm: (isAngel) => `Your ${isAngel ? "Angel" : "Mortal"} has confirmed a themed prank/gift. Please /confirm on your end to validate this!`,
     BothHaveConfirmed: (isAngel, fact) => isAngel ? "Both you and your angel have confirmed the themed prank/gift! A fun fact about your angel's angel has been sent to them :)" : `Both you and your mortal have confirmed the themed prank/gift! Here is a fact about your angel:\n\n${fact}`,

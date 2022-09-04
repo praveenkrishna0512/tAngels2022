@@ -110,7 +110,7 @@ DoubleConfirmHandler = async (ctx) => {
 
     const other = ctx.isAngel ? ctx.angel : ctx.mortal
     if (!other.isRegistered()) {
-        return ctx.reply(messages.UnregisteredTarget(ctx.chatTarget))
+        return ctx.reply(messages.UnregisteredTargetToConfirm(ctx.chatTarget))
     }
 
     // Check if both have confirmed

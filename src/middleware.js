@@ -82,7 +82,7 @@ Settings = (isAngel = true, otherBot) => async (ctx, next) => {
     ctx.chatAs = isAngel ? "Mortal" : "Angel"
     // TODO: Change this according to the different theme days
     // FORMAT: [dayNum, monthNum]
-    ctx.themeDays = [[5, 9], [7, 9], [9, 9], [13, 9], [15, 9]]
+    ctx.themeDays = [[4, 9], [7, 9], [9, 9], [13, 9], [15, 9]]
     await next()
 }
 

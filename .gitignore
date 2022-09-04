@@ -1,6 +1,7 @@
 data
 .idea
 *.txt
+*.md
 
 # Logs
 logs
