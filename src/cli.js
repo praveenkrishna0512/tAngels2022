@@ -42,7 +42,6 @@ InputHandler = (model) => async (input) => {
         case "deregister":
             Deregister(model, args[0])
             break
-        //TODO: add save to storage
         //TODO: add command to print registered participants and their ID
         case "nuke":
             // TODO: check for confirmation

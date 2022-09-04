@@ -25,5 +25,5 @@ module.exports = {
     AlreadyConfirmed: "You have already confirmed for today!",
     // TODO: Change the Developer according to who is in charge now
     GeneralError: "Something went wrong :(. Please show this to the developer, Praveen (@praveeeenk)",
-    FactIndexError: (factIndex) => `Something went wrong :(. Please show this to the developer, Praveen (@praveeeenk).\n\nFact Index: ${factIndex}`
+    FactIndexError: (factIndex) => `Are you sure it is a theme day today? If it is, then please show this to the developer, Praveen (@praveeeenk).\n\nSomething went wrong when trying to fetch the angel's fun fact :(. \n\nFact Index: ${factIndex}`
 };

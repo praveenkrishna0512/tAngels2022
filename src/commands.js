@@ -101,6 +101,13 @@ DoubleConfirmHandler = async (ctx) => {
         return ctx.reply(messages.AlreadyConfirmed)
     }
 
+    if (ctx.isAngel) {
+        person.angelConfirm = true
+    } else {
+        person.mortalConfirm = true
+    }
+    model.saveToStorage()
+
     const other = ctx.isAngel ? ctx.angel : ctx.mortal
     if (!other.isRegistered()) {
         return ctx.reply(messages.UnregisteredTarget(ctx.chatTarget))
@@ -127,9 +134,6 @@ DoubleConfirmHandler = async (ctx) => {
     const fact = angelsAngel.facts[factIndex]
     await ctx.model.mortalBot.telegram.sendMessage(angel.telegramId, messages.BothHaveConfirmed(false, fact))
     await ctx.model.angelBot.telegram.sendMessage(mortal.telegramId, messages.BothHaveConfirmed(true, null))
-
-    confirmed = true
-    model.saveToStorage()
 }
 
 AnimationHandler = async (ctx) => {
